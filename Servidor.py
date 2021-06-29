@@ -35,7 +35,7 @@ class client(Thread):
 
             mensagem = self.sock.recv(1024).decode()
 
-            self.sock.send(b'MENSAGEM RECEBIDA')
+            self.sock.send(b'MENSAGEM RECEBIDA PELO SERVIDOR')
 
             print('Client sent:', mensagem)
 
@@ -67,7 +67,7 @@ def time_convert(sec):
      mins = str(mins)
      sec = str(sec)
      hours = str(hours)        
-     tempo_convertido = hours+"horas:  "+mins+"minutos:  "+sec+"segundos"
+     tempo_convertido = hours+"h:"+mins+"m:"+sec+"s"
 
      return tempo_convertido
             

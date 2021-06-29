@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1032</width>
+    <height>725</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QScrollArea" name="scrollArea">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>210</y>
+      <width>601</width>
+      <height>211</height>
+     </rect>
+    </property>
+    <property name="widgetResizable">
+     <bool>true</bool>
+    </property>
+    <widget class="QWidget" name="scrollAreaWidgetContents">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>599</width>
+       <height>209</height>
+      </rect>
+     </property>
+     <widget class="QListWidget" name="listWidget">
+      <property name="geometry">
+       <rect>
+        <x>9</x>
+        <y>9</y>
+        <width>185</width>
+        <height>191</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>Cardoso Martins</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Domingos</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Felipe Fernandes</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Gabriela</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Guarnieri</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Gullit</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Nicolas</string>
+       </property>
+       <property name="background">
+        <brush brushstyle="NoBrush">
+         <color alpha="255">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </property>
+       <property name="foreground">
+        <brush brushstyle="NoBrush">
+         <color alpha="255">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Renan Nunes</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QListWidget" name="listWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>9</y>
+        <width>185</width>
+        <height>191</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>C</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>C++</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Circuitos Elétricos</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Eletrônica</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>LabView</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Programação EE</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Python</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>30</y>
+        <width>131</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Começar Tarefa</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>120</y>
+        <width>131</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Terminar Tarefa</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1032</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
