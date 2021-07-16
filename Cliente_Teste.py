@@ -62,8 +62,8 @@ class Ui_MainWindow(object):
         b = str(self.lineEdit_2.text())
         st = str(self.comboBox.currentText())
         hora = datetime.now()
-        c = hora.strftime("%S")  ##%H:%M:%S
-        r = "Nome: " + a + "\tTarefa:" + b + "\tStatus:\n" + st + "\nTempo:" + c
+        c = hora.strftime("%H:%M:%S")  ##%H:%M:%S
+        r = "Nome: " + a + "\tTarefa:" + b + "\n" + st + "\nTempo:" + c
         ts(s,r)
 
 if __name__ == '__main__':

@@ -70,17 +70,26 @@ class client(Thread):
                         time_lapsed = end_time - start_time
                         numero_linha = contador_linha
                         print('TESTE AMENDOIM 2')
-                        cond_nova_escrita = 0
-                    if (contador_linha == (numero_linha+1)):
-                            tempo_anterior = line
-                            tempo_novo = int(int(tempo_anterior) + int(time_lapsed))
-                            print(line.replace(tempo_anterior, str(tempo_novo)), end='')
-                            cond_nova_escrita = 0
+                        cond_nova_escrita = 0                        
+                    if (contador_linha == (numero_linha+2)):
+                            string_repor = line
+                            print('VELHA LINHA:'+ line)
+                            print('VAMOS PINTAR O TIME LAPSED:'+str(time_lapsed))
+                            tempo_anterior = line.split(':')                                                        
+                            tempo_novo = int(3600*int(tempo_anterior[0]) + 60*int(tempo_anterior[1])+ int(tempo_anterior[2])+int(time_lapsed))
+                            tempo_novo_convertido = time_convert(tempo_novo)                            
+                            data[contador_linha]= time_convert(tempo_novo)
+                            print('NOVA LINHAA:'+ line)
+                            print('AQUIII ESTA:')
+                            print(tempo_novo_convertido)
+                            print('AQUIII')                            
                             arquivo.close()
                             arquivo = open('VISUALIZADOR_DE_TAREFAS.txt', 'wt')
-                            arquivo.write(str(data))
+                            for line in data:
+                                arquivo.write(line)
                             arquivo.close()
                             print('HOUVE OVERWRITE NO ARQUIVO TXT')
+                            cond_nova_escrita = 0
                             
             arquivo.close()                
                  ################
@@ -88,9 +97,11 @@ class client(Thread):
                 arquivo = open('VISUALIZADOR_DE_TAREFAS.txt','a+')
                 arquivo.write(mensagem[0] + '\n') 
                 arquivo.write(mensagem[1] + '\n')
+                mensagem[2] = '00:00:00'
                 arquivo.write(mensagem[2] + '\n')              
                 arquivo.close()
-                start_time = 0
+                start_time = time.time()
+                tempo_anterior = 0 
                 print("ESCREVERAM-SE NOVOS DADOS NO ARQUIVO TXT")
 
 
@@ -102,22 +113,7 @@ class client(Thread):
 
 
             ###############################
-
-            if mensagem == 'Nicolas,Labview,1':
-                start_time_nicolas = time.time()
-                print('Temporizador de Nicolas começou')            
-
-            if mensagem == 'Nicolas,Labview,0':
-                end_time_nicolas = time.time()
-                arquivo = open('VISUALIZADOR_DE_TAREFAS.txt','w')
-                arquivo.write(mensagem)
-                arquivo.write('\t')
-                time_lapsed_nicolas = end_time_nicolas - start_time_nicolas
-                tempo_convertido_nicolas = time_convert(time_lapsed_nicolas)
-                arquivo.write(tempo_convertido_nicolas)
-                print('Temporizador de Nicolas terminou')
-                arquivo.close()
-    
+            
     
 def time_convert(sec):
 
@@ -131,7 +127,7 @@ def time_convert(sec):
      mins = str(mins)
      sec = str(sec)
      hours = str(hours)        
-     tempo_convertido = hours+"h:"+mins+"m:"+sec+"s"
+     tempo_convertido = hours+":"+mins+":"+sec
 
      return tempo_convertido
             
