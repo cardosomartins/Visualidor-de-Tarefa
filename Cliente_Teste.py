@@ -53,8 +53,8 @@ class Ui_MainWindow(object):
         self.label.setText(_translate("MainWindow", "Nome:"))
         self.label_2.setText(_translate("MainWindow", "Tarefa:"))
         self.label_3.setText(_translate("MainWindow", "Status:"))
-        self.comboBox.setItemText(0, _translate("MainWindow", "Iniciado"))
-        self.comboBox.setItemText(1, _translate("MainWindow", "Finalizado"))
+        self.comboBox.setItemText(0, _translate("MainWindow", "0"))
+        self.comboBox.setItemText(1, _translate("MainWindow", "1"))
         self.pushButton.setText(_translate("MainWindow", "Enviar"))
 
     def tarefa(self):
@@ -62,8 +62,8 @@ class Ui_MainWindow(object):
         b = str(self.lineEdit_2.text())
         st = str(self.comboBox.currentText())
         hora = datetime.now()
-        c = hora.strftime("%H:%M:%S\t%d/%m/%Y")
-        r = "Nome: " + a + "\nTarefa: " + b + "\nInicio: " + c + "\nStatus: " + st
+        c = hora.strftime("%S")  ##%H:%M:%S
+        r = "Nome: " + a + "\tTarefa:" + b + "\tStatus:\n" + st + "\nTempo:" + c
         ts(s,r)
 
 if __name__ == '__main__':

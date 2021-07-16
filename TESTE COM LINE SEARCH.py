@@ -38,28 +38,33 @@ class client(Thread):
 
             self.sock.send(b'MENSAGEM RECEBIDA PELO SERVIDOR')
 
-            print('Client sent:', mensagem)
+            print('Client sent:\n', mensagem)
 
             arquivo = "arq.txt"
 
-            tempo_auxiliar = 0
+            contador = -1
+            contador_auxiliar = -1
         ## FALTA CONVERTER A MENSAGEM EM UM BOOLEANO E DEIXAR SÓ A MENSAGEM 
             with fileinput.FileInput(arquivo, inplace = True, backup ='.bak') as f:
-                for (i,line) in arquivo:
-                    if(mensagem == line) and boolean == 1:
+                for line in arquivo:
+                    contador += 1
+                    if mensagem == line:
                         start_time = time.time()
-                    if(mensagem == line) and boolean == 0:
+                    if mensagem == line:
                         end_time = time.time()
                         time_lapsed = end_time - start_time
                         numero_linha = i
-                        for i == numero_linha+2 in arquivo:
+                        if i == numero_linha+2 in arquivo:
                             tempo_anterior = int(line)
                             tempo_novo = int(tempo_anterior + time_lapsed)
                             print(line.replace(tempo_anterior, tempo_novo), end='')
-                        for i == numero_linha+1 in arquivo:
+                        if i == numero_linha+1 in arquivo:
                             tempo_convertido_anterior = line    
                             tempo_convertido_novo = time_convert(tempo_novo)
                             print(line.replace(tempo_convertido_anterior, tempo_convertido_novo))
+                contador = -1
+                contador_auxiliar = -1
+        
 
 
                                    
