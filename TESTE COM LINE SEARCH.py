@@ -2,11 +2,12 @@ import socket
 
 from threading import *
 import time
+import fileinput
 
 
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-host = "192.168.0.15"
+host = "192.168.0.6"
 
 port = 8000
 
@@ -39,13 +40,37 @@ class client(Thread):
 
             print('Client sent:', mensagem)
 
+            arquivo = "arq.txt"
+
+            tempo_auxiliar = 0
+        ## FALTA CONVERTER A MENSAGEM EM UM BOOLEANO E DEIXAR SÓ A MENSAGEM 
+            with fileinput.FileInput(arquivo, inplace = True, backup ='.bak') as f:
+                for (i,line) in arquivo:
+                    if(mensagem == line) and boolean == 1:
+                        start_time = time.time()
+                    if(mensagem == line) and boolean == 0:
+                        end_time = time.time()
+                        time_lapsed = end_time - start_time
+                        numero_linha = i
+                        for i == numero_linha+2 in arquivo:
+                            tempo_anterior = int(line)
+                            tempo_novo = int(tempo_anterior + time_lapsed)
+                            print(line.replace(tempo_anterior, tempo_novo), end='')
+                        for i == numero_linha+1 in arquivo:
+                            tempo_convertido_anterior = line    
+                            tempo_convertido_novo = time_convert(tempo_novo)
+                            print(line.replace(tempo_convertido_anterior, tempo_convertido_novo))
+
+
+                                   
+
             if mensagem == 'Nicolas,Labview,1':
                 start_time_nicolas = time.time()
                 print('Temporizador de Nicolas começou')            
 
             if mensagem == 'Nicolas,Labview,0':
                 end_time_nicolas = time.time()
-                arquivo = open('arq.txt','w')
+                arquivo = open('arq.txt','a')
                 arquivo.write(mensagem)
                 arquivo.write('\t')
                 time_lapsed_nicolas = end_time_nicolas - start_time_nicolas
@@ -79,7 +104,3 @@ while 1:
     clientsocket, address = serversocket.accept()
 
     client(clientsocket, address)  
-
-
-    
-            
