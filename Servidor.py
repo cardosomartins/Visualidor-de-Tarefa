@@ -1,8 +1,9 @@
 import socket
-
+import tkinter as tk
 from threading import *
 import time
 import fileinput
+
 
 
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -63,26 +64,19 @@ class client(Thread):
                     contador_linha = contador_linha + 1
                     if (((mensagem[0]+'\n') == line) and booleano == 1): ##ATENTAR AO BOOLEANO SER INT
                         start_time = time.time()
-                        print("TESTE AMENDOIM 1")
                         cond_nova_escrita = 0
                     if (((mensagem[0]+'\n') == line) and booleano == 0):
                         end_time = time.time()
                         time_lapsed = end_time - start_time
                         numero_linha = contador_linha
-                        print('TESTE AMENDOIM 2')
                         cond_nova_escrita = 0                        
                     if (contador_linha == (numero_linha+2)):
                             string_repor = line
-                            print('VELHA LINHA:'+ line)
-                            print('VAMOS PINTAR O TIME LAPSED:'+str(time_lapsed))
                             tempo_anterior = line.split(':')                                                        
                             tempo_novo = int(3600*int(tempo_anterior[0]) + 60*int(tempo_anterior[1])+ int(tempo_anterior[2])+int(time_lapsed))
                             tempo_novo_convertido = time_convert(tempo_novo)                            
                             data[contador_linha]= time_convert(tempo_novo)
-                            print('NOVA LINHAA:'+ line)
-                            print('AQUIII ESTA:')
-                            print(tempo_novo_convertido)
-                            print('AQUIII')                            
+                            print(tempo_novo_convertido)                                                    
                             arquivo.close()
                             arquivo = open('VISUALIZADOR_DE_TAREFAS.txt', 'wt')
                             for line in data:
@@ -95,7 +89,7 @@ class client(Thread):
                  ################
             if cond_nova_escrita != 0:
                 arquivo = open('VISUALIZADOR_DE_TAREFAS.txt','a+')
-                arquivo.write(mensagem[0] + '\n') 
+                arquivo.write('\n' + mensagem[0] + '\n') 
                 arquivo.write(mensagem[1] + '\n')
                 mensagem[2] = '00:00:00'
                 arquivo.write(mensagem[2] + '\n')              
@@ -130,15 +124,37 @@ def time_convert(sec):
      tempo_convertido = hours+":"+mins+":"+sec
 
      return tempo_convertido
+
+
             
 serversocket.listen(5)
-print ('Conexão do Servidor estabelecida e disponível para receber mensagens!')
+print ('Conexão do Servidor estabelecida e disponível para receber/transmitir mensagens!')
 
 while 1:
+    
+    def atualizar():
+        arquivo = open('VISUALIZADOR_DE_TAREFAS.txt', 'r')
+        CAIXINHA = arquivo.readlines()        
+        arquivo.close()         
+        return CAIXINHA
 
+    CAIXINHA = atualizar()
+    root = tk.Tk()
+    w = tk.Label(root, text=CAIXINHA)
+    w.pack()
     clientsocket, address = serversocket.accept()
+    client(clientsocket, address)        
+    root.after(1, atualizar)   
+    root.mainloop() 
+    
 
-    client(clientsocket, address)  
+    
+
+
+    
+    
+    
+    
 
 
     

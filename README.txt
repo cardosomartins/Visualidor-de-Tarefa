@@ -6,7 +6,7 @@ a determinada atividade por certo indivíduo.
 Existem duas interfaces, a do servidor e a do cliente.
 _______________________________________
 Requisitos:
-1. Instalar pyqt5.
+1. Instalar pyqt5 e tkinter
 2. Verificar se a porta escolhida para a tranmissão está aberta.
 3. Deve-se assegurar que não há arquivo .txt com o nome de "VISUALIZADOR DE TAREFAS"
 no diretório onde o Python salva os arquivos.
@@ -24,6 +24,10 @@ Caso se esteja terminando o tempo destinado a atividade, selecionar "0".
 pessoas, no entanto, deve-se observar que só se pode realizar UMA atividade por vez.
 Caso, queira-se iniciar outra atividade, deve-se finalizar a antiga com o 
 procedimento acima descrito.
+3. A interface demonstrando o tempo de trabalho de cada pessoa só aparece quando
+a conexão com o SERVIDOR é realizada.
+4. Para que seja atualizado essa interface, é necessário fechar o programa do
+servidor e executá-lo novamente.
 
 _______________________________________
 Instruções de uso(SERVIDOR):
@@ -40,6 +44,6 @@ _______________________________________
 
 Restrições:
 
-A. O programa só permite a contabiliadde de uma atividade por vez.
+A. O programa só permite a contabiliadde de UMA atividade por vez.
 
 

@@ -85,3 +85,10 @@ if __name__ == '__main__':
     ui.setupUi(Principal)
     Principal.show()
     sys.exit(app.exec_())
+
+    app = QtWidgets.QApplication(system.argv)
+    Principal = QtWidgets.QMainWindow()
+    ui = Ui_Form()
+    ui.setupUi(Principal)
+    Principal.show()
+    system.exit(app.exec_())
